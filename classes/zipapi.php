@@ -11,7 +11,7 @@ class Zip{
         $database = substr($url["path"], 1);
 
         $db = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $pass);
-        $stmtCoords= $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip1;');
+        $stmtCoords= $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
 
         $stmtCoords->bindParam( ':zip1', $zip1 );
 
@@ -19,7 +19,6 @@ class Zip{
 
         $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
-        print_r($resultCoords);
 
         $lat1 = $resultCoords['latitude'];
         $lon1 = $resultCoords['longitude'];
