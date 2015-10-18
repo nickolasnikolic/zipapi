@@ -2,7 +2,7 @@
 
 class Zip{
 
-    function distance($zipOne,$zipTwo){
+    function distance($zip1,$zip2){
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
         $server = $url["host"];
@@ -11,7 +11,7 @@ class Zip{
         $database = substr($url["path"], 1);
 
         $db = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $pass);
-        $stmtCoords= $db->prepare('SELECT * FROM zip;');//' WHERE zip = :zip1;');
+        $stmtCoords= $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
 
         $stmtCoords->bindParam( ':zip1', $zip1 );
 
