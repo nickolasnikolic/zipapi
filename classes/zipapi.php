@@ -19,8 +19,8 @@ class Zip{
 
         $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
-       $lat1 = $resultCoords["latitude"];
-       $lon1 = $resultCoords["longitude"];
+       $lat1 = $resultCoords['latitude'];
+       $lon1 = $resultCoords['longitude'];
 
         $stmtCoords= $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip2;');
 
@@ -31,8 +31,8 @@ class Zip{
         $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
 
-        $lat2 = $resultCoords["latitude"];
-        $lon2 = $resultCoords["longitude"];
+        $lat2 = $resultCoords['latitude'];
+        $lon2 = $resultCoords['longitude'];
 
        /* Convert all the degrees to radians */
        $lat1 = $this->deg_to_rad($lat1);
