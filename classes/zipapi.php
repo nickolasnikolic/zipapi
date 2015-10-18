@@ -80,10 +80,10 @@ class Zip{
         $lat = $result[0]["latitude"];
         $lon = $result[0]["longitude"];
 
-        $stmtCoords= $db->prepare('SELECT zip
+        $stmtCoords= $db->prepare('SELECT zip, latitude, longitude
                                     FROM zip
-                                    WHERE ( POW( ( 69.1 * ( lon - :lon ) * cos( :lat / 57.3 ) ) ,2 ) +
-                                          POW( ( 69.1 * ( lat - :lat ) ),2 ) ) < ( :radius * :radius );');
+                                    WHERE ( POW( ( 69.1 * ( longitude - :lon ) * cos( :lat / 57.3 ) ) ,2 ) +
+                                          POW( ( 69.1 * ( latitude - :lat ) ),2 ) ) < ( :radius * :radius );');
 
 
         $stmtCoords->bindParam( ':lon', $lon );
