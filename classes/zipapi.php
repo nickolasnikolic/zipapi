@@ -11,7 +11,7 @@ class Zip{
         $database = substr($url["path"], 1);
 
         $db = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $pass);
-        $stmt $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
+        $stmt = $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
 
         $stmt->bindParam( ':zip1', $zip1 );
 
