@@ -19,7 +19,7 @@ class Zip{
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        print_r($result);
+        var_dump($result);
 
         $lat1 = $result["latitude"];
         $lon1 = $result["longitude"];
