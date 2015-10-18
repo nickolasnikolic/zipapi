@@ -17,7 +17,7 @@ class Zip{
 
         $stmtCoords->execute();
 
-        $resultCoords = $stmtUserId->fetchAll(PDO::FETCH_ASSOC);
+        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
        $lat1 = $resultCoords["latitude"];
        $lon1 = $resultCoords["longitude"];
@@ -28,7 +28,7 @@ class Zip{
 
         $stmtCoords->execute();
 
-        $resultCoords = $stmtUserId->fetchAll(PDO::FETCH_ASSOC);
+        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
 
         $lat2 = $resultCoords["latitude"];
@@ -76,13 +76,11 @@ class Zip{
 
         $stmtCoords->execute();
 
-        $resultCoords = $stmtUserId->fetchAll(PDO::FETCH_ASSOC);
+        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
         $lat = $resultCoords["latitude"];
         $lon = $resultCoords["longitude"];
 
-
-        $i = 0;
         $stmtCoords= $db->prepare('SELECT zip
                                     FROM zipcodes
                                     WHERE ( POW( ( 69.1 * ( lon - :lon ) * cos( :lat / 57.3 ) ) ,2 ) +
@@ -95,7 +93,7 @@ class Zip{
 
         $stmtCoords->execute();
 
-        $zipcodes = $stmtUserId->fetchAll(PDO::FETCH_ASSOC);
+        $zipcodes = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
         return $zipcodes;
     }
