@@ -22,7 +22,7 @@ class Zip{
         $lat1 = $resultCoords["latitude"];
         $lon1 = $resultCoords["longitude"];
 
-        $stmtCoords= $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip2;');
+        $stmtCoords= $db->prepare('SELECT * FROM zip WHERE zip = :zip2;');
 
         $stmtCoords->bindParam( ':zip2', $zip2 );
 
