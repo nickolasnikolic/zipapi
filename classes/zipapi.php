@@ -21,8 +21,8 @@ class Zip{
 
         var_dump($result);
 
-        $lat1 = $result["latitude"];
-        $lon1 = $result["longitude"];
+        $lat1 = $result[0]["latitude"];
+        $lon1 = $result[0]["longitude"];
 
         $stmt= $db->prepare('SELECT * FROM zip WHERE zip = :zip2;');
 
@@ -33,8 +33,8 @@ class Zip{
         $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-        $lat2 = $result['latitude'];
-        $lon2 = $result['longitude'];
+        $lat2 = $result[0]['latitude'];
+        $lon2 = $result[0]['longitude'];
 
        /* Convert all the degrees to radians */
        $lat1 = $this->deg_to_rad($lat1);
