@@ -19,8 +19,8 @@ class Zip{
 
         $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
 
-        $lat1 = $resultCoords['latitude'];
-        $lon1 = $resultCoords['longitude'];
+        $lat1 = $resultCoords["latitude"];
+        $lon1 = $resultCoords["longitude"];
 
         $stmtCoords= $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip2;');
 
