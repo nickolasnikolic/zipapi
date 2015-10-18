@@ -16,5 +16,8 @@ $app->get('/around/:zipOrigin/:radius', function($zipOrigin, $radius){
   echo json_encode($zip->zipcodesinradius($zipOrigin, $radius));
 });
 
+$app->get('/', function(){
+  echo 'oops! was that a progressive your browser found! nah, just a concerned citizen.';
+});
 
 $app->run();
