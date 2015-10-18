@@ -11,28 +11,28 @@ class Zip{
         $database = substr($url["path"], 1);
 
         $db = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $pass);
-        $stmtCoords= $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
+        $stmt $db->prepare('SELECT * FROM zip WHERE zip = :zip1;');
 
-        $stmtCoords->bindParam( ':zip1', $zip1 );
+        $stmt->bindParam( ':zip1', $zip1 );
 
-        $stmtCoords->execute();
+        $stmt->execute();
 
-        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
+        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $lat1 = $resultCoords["latitude"];
-        $lon1 = $resultCoords["longitude"];
+        $lat1 = $result["latitude"];
+        $lon1 = $result["longitude"];
 
-        $stmtCoords= $db->prepare('SELECT * FROM zip WHERE zip = :zip2;');
+        $stmt= $db->prepare('SELECT * FROM zip WHERE zip = :zip2;');
 
-        $stmtCoords->bindParam( ':zip2', $zip2 );
+        $stmt->bindParam( ':zip2', $zip2 );
 
-        $stmtCoords->execute();
+        $stmt->execute();
 
-        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
+        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-        $lat2 = $resultCoords['latitude'];
-        $lon2 = $resultCoords['longitude'];
+        $lat2 = $result['latitude'];
+        $lon2 = $result['longitude'];
 
        /* Convert all the degrees to radians */
        $lat1 = $this->deg_to_rad($lat1);
