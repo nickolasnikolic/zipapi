@@ -8,12 +8,12 @@ $app = new \Slim\Slim();
 
 $app->get('/between/:origin/:destination', function($origin, $destination){
   $zip = new Zip();
-  json_encode($zip->distance($origin, $destination));
+  echo json_encode($zip->distance($origin, $destination));
 });
 
 $app->get('/around/:zipOrigin/:radius', function($zipOrigin, $radius){
   $zip = new Zip();
-  json_encode($zip->zipcodesinradius($zipOrigin, $radius));
+  echo json_encode($zip->zipcodesinradius($zipOrigin, $radius));
 });
 
 
