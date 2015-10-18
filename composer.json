@@ -1,0 +1,11 @@
+{
+    "require": {
+        "slim/slim": "~2.6"
+    },
+    "extra": {
+      "heroku": {
+        "document-root": "api",
+        "index-document": "index.php"
+      }
+    }
+}
