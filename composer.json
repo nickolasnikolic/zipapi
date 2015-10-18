@@ -4,7 +4,7 @@
     },
     "extra": {
       "heroku": {
-        "document-root": "api",
+        "document-root": "/",
         "index-document": "index.php"
       }
     }
