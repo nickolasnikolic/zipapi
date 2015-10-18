@@ -69,16 +69,16 @@ class Zip{
         $database = substr($url["path"], 1);
 
         $db = new PDO("mysql:host=$server;dbname=$database;charset=utf8", $user, $pass);
-        $stmtCoords= $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip;');
+        $stmt = $db->prepare('SELECT * FROM zipcodes WHERE zip = :zip;');
 
-        $stmtCoords->bindParam( ':zip', $zip );
+        $stmt->bindParam( ':zip', $zip );
 
-        $stmtCoords->execute();
+        $stmt->execute();
 
-        $resultCoords = $stmtCoords->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $lat = $resultCoords["latitude"];
-        $lon = $resultCoords["longitude"];
+        $lat = $result[0]["latitude"];
+        $lon = $result[0]["longitude"];
 
         $stmtCoords= $db->prepare('SELECT zip
                                     FROM zipcodes
