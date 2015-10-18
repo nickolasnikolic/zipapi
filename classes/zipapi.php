@@ -56,7 +56,6 @@ class Zip{
 
 
     function deg_to_rad($deg){
-        $radians = 0.0;
         $radians = $deg * M_PI/180.0;
         return $radians;
     }
