@@ -81,7 +81,7 @@ class Zip{
         $lon = $result[0]["longitude"];
 
         $stmtCoords= $db->prepare('SELECT zip
-                                    FROM zipcodes
+                                    FROM zip
                                     WHERE ( POW( ( 69.1 * ( lon - :lon ) * cos( :lat / 57.3 ) ) ,2 ) +
                                           POW( ( 69.1 * ( lat - :lat ) ),2 ) ) < ( :radius * :radius );');
 
